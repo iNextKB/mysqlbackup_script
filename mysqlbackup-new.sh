@@ -1,5 +1,6 @@
 #!/bin/sh
-# Creqated By Gayantha
+# Created By Gayantha
+keep_day=30 
 
 echo "starting db backup"
 
@@ -24,4 +25,8 @@ else
   echo 'Error compressing backup'
  exit
 fi
+
 ls -laSh
+
+# Delete old backups
+find ./ -mtime +$keep_day -delete
